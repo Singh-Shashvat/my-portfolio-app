@@ -158,4 +158,26 @@ export const techHeading ="Technologies";
 
 export const techIntro = "Here are the technologies I use to bring ideas to life. From frontend frameworks to backend tools and databases, I enjoy experimenting with different stacks and continuously improving my skills in both development and Data Structures & Algorithms (DSA) to stay updated with the fast-moving tech world."
 
-export const projectHeading = "My Project"
+export const projectHeading = "My Project";
+
+
+export const siteConfig = {
+  name: "Vite + HeroUI",
+  description: "Make beautiful websites regardless of your design experience.",
+  navItems: [
+    {
+      label: "Introduction",
+      href: "/",
+    },
+    {
+      label: "Projects",
+      href: "/projects",
+    },
+    {
+      label: "Contact",
+      href: "/contact",
+    }
+  ],
+  
+ 
+};

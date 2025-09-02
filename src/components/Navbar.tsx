@@ -14,13 +14,13 @@ import {
   NavbarMenuItem,
 } from "@heroui/navbar";
 
-import { siteConfig } from "@/config/DataDetails";
+import { siteConfig } from "@/Constant/Constant";
 import { ThemeSwitch } from "@/components/theme-switch";
 
 
 
 import logo from "../assets/logo.png";
-import { NotificationIcon } from "./notificationicon";
+// import { NotificationIcon } from "./notificationicon";
 
 export const Navbar = () => {
   return (
@@ -85,7 +85,7 @@ export const Navbar = () => {
             </a>
           </div>
           <ThemeSwitch />
-          <NotificationIcon/>
+          {/* <NotificationIcon/> */}
         </NavbarItem>
       </NavbarContent>
 
