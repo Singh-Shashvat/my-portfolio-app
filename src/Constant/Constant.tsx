@@ -19,9 +19,9 @@ export const achievements: IAchievement[] = [
 ];
 
 
-import type {  IExperienceType } from "@/types";
 
-export const experiences: IExperienceType[] = [
+
+export const experiences = [
   {
     role: "Frontend Developer Intern",
     description:
@@ -103,9 +103,9 @@ export const projects: IProject[] = [
 
 import { FaHtml5, FaCss3Alt, FaReact, FaBootstrap, FaNodeJs, FaPython, FaGitAlt,  } from "react-icons/fa";
 import { SiTailwindcss, SiDjango, SiMysql, SiPostgresql, SiJavascript, SiNextui } from "react-icons/si";
-import { ITechCategory } from "@/types";
 
-export const technologies: ITechCategory[] = [
+
+export const technologies = [
   {
     title: "Frontend",
     items: [

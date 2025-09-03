@@ -20,7 +20,7 @@ import { ThemeSwitch } from "@/components/theme-switch";
 
 
 import logo from "../assets/logo.png";
-// import { NotificationIcon } from "./notificationicon";
+import { NotificationIcon } from "./notificationicon";
 
 export const Navbar = () => {
   return (
@@ -85,7 +85,7 @@ export const Navbar = () => {
             </a>
           </div>
           <ThemeSwitch />
-          {/* <NotificationIcon/> */}
+          <NotificationIcon/>
         </NavbarItem>
       </NavbarContent>
 
@@ -121,7 +121,3 @@ export const Navbar = () => {
   );
 };
 
-
-// to do
-// custom implementation
-// next ui component user in lace of img

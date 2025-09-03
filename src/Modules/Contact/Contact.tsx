@@ -34,7 +34,7 @@ export const Contact = () => {
       });
 
       if (response.ok) {
-        // ✅ Add to context
+        
         addNotefication({ name: form.name, message: form.message });
 
         alert("Your message has been sent!");

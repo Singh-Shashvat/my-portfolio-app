@@ -1,6 +1,7 @@
-// import { DefaultLayout } from "@/layouts/layout";
+
 import { motion } from "framer-motion";
 import { experiences } from "@/Constant/Constant";
+import {ProjectTechs} from "@/Modules/Project/ProjectTechs";
 
 export const Experience = () => {
   return (
@@ -43,9 +44,10 @@ export const Experience = () => {
               
               <div className="mt-3 flex flex-wrap gap-2">
                 {exp.technologies.map((tech) => (
-                  <span key={tech} className="px-3 py-1 text-sm bg-blue-600 rounded-full">
-                    {tech}
-                  </span>
+                 <ProjectTechs
+                 
+                  technologies={tech}
+                 />
                 ))}
               </div>
             </motion.div>

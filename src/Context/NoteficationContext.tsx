@@ -1,5 +1,4 @@
-import { NotificationContext } from "@/testingnewcodes/test";
-import { INotefication, INoteficationContext } from "@/types";
+import { INotefication, INoteficationContext, INoteficationType } from "@/types";
 import { createContext, ReactNode, useContext, useState } from "react";
 
 export const NoteficationContext = createContext<INotefication | null> (null);
@@ -8,8 +7,8 @@ export const NoteficationProvider = ({children}:{children:ReactNode}) => {
     const [notification, setNotification] = useState<INoteficationContext[] | undefined>([])
 
 
-    const addNotefication = (notification: Omit<INoteficationContext, "id">) => {
-        setNotification((prev) => [(...prev ?? []) , {id:Date.now(), ...notification},])
+    const addNotefication = (notification: INoteficationType) => {
+        setNotification((CurrentNotification) => [...(CurrentNotification ?? []) , {id:Date.now(), ...notification},])
   };
   
 
@@ -24,13 +23,10 @@ export const NoteficationProvider = ({children}:{children:ReactNode}) => {
 }
 
 export const useNotificationContext = () =>{
-  const context = useContext(NotificationContext);
+  const context = useContext(NoteficationContext);
   if(!context){
-    throw new Error("useNotificationContext error ")
+    throw new Error("useNotificationContext must be used within a NoteficationProvider")
   }
   return context;
 }
 
-// todo
-// change the omoit with two interfaces
-// change prev with new notefication variable

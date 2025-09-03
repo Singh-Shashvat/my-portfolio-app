@@ -1,12 +1,10 @@
-// import { DefaultLayout } from "@/layouts/layout";
-
 import { motion } from "framer-motion";
 import { achievements } from "@/Constant/Constant";
 
 
 export const Achievements = () => {
   return (
-    // <DefaultLayout>
+    
       <section className="py-10 px-6 rounded-2xl shadow-md">
         <motion.h2
           initial={{ opacity: 0, y: -30 }}
@@ -45,6 +43,6 @@ export const Achievements = () => {
           ))}
         </div>
       </section>
-    // </DefaultLayout>
+    
   );
 };

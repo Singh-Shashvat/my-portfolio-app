@@ -11,6 +11,10 @@ export interface IAchievement {
   icon: JSX.Element;
 }
 
+export interface IExperienceTech{
+  technologies : string;
+}
+
 export interface IExperienceType {
   role: string;
   description: string;
@@ -48,9 +52,14 @@ export interface INoteficationContext{
   message: string;
 }
 
+export interface INoteficationType{
+  name: string;
+  message: string;
+}
+
 export interface INotefication{
   notification: INoteficationContext[] | undefined;
-  addNotefication: (notification: Omit<INoteficationContext, "id">) => void;
+  addNotefication: (notification: INoteficationType) => void;
 }
 
 export interface FormData{

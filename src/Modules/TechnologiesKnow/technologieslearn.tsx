@@ -1,8 +1,6 @@
 import { motion } from "framer-motion";
 import { ITechCategory } from "@/types";
 
-
-
 export const Technologieslearn = ({title , items} : ITechCategory) => {
   return (
     <div className="flex flex-wrap gap-6 justify-center">
@@ -13,7 +11,7 @@ export const Technologieslearn = ({title , items} : ITechCategory) => {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay:  1 }}
+              transition={{ duration: 0.8, delay:  0.2 }}
             >
               <p className="font-bold text-lg mb-4">{title}</p>
               <ul className="space-y-3">

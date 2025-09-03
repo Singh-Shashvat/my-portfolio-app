@@ -1,5 +1,4 @@
-// import { DefaultLayout } from "@/layouts/layout";
-import profilepic2 from "../assets/ChatGPT Image Aug 24, 2025, 03_42_53 PM.png";
+import profilepic2 from "@/assets/ChatGPT Image Aug 24, 2025, 03_42_53 PM.png";
 import { motion } from "framer-motion";
 import {Introductiondata} from "@/Constant/Constant"
 

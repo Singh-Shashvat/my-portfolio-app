@@ -15,9 +15,3 @@ export const DefaultLayout = () => {
   )
 }
 
-// to do
-// implement custom colours in config
-// footer
-// outlet
-// put footer in const and map them
-// implement absolute pathing
