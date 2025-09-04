@@ -152,6 +152,14 @@ export const footerdata = [
   {type:"gmail",
     value:"shashvatsingh124@gmail.com"
   },
+  {
+    type:"MobNo",
+    value:"7646907236"
+  },
+  {
+    type:"Address",
+    value:"Raipur, Chhattisgadh"
+  }
 ]
 
 export const techHeading ="Technologies";

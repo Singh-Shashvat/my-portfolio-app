@@ -1,5 +1,4 @@
-
-
+import { useState } from "react";
 import { Link } from "@heroui/link";
 import { CiLinkedin } from "react-icons/ci";
 import { RiGithubFill } from "react-icons/ri";
@@ -15,16 +14,20 @@ import {
 } from "@heroui/navbar";
 
 import { siteConfig } from "@/Constant/Constant";
-import { ThemeSwitch } from "@/components/theme-switch";
-
-
-
 import logo from "../assets/logo.png";
 import { NotificationIcon } from "./notificationicon";
 
 export const Navbar = () => {
+  
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
-    <HeroUINavbar className=" z-50 fixed" maxWidth="xl" >
+    <HeroUINavbar
+      className="z-50 fixed w-full bg-black/70 backdrop-blur-md"
+      maxWidth="xl"
+      isMenuOpen={isMenuOpen}
+      onMenuOpenChange={setIsMenuOpen}
+    >
       
       <NavbarContent className="basis-1/5 sm:basis-auto" justify="start">
         <NavbarBrand className="gap-3">
@@ -32,24 +35,20 @@ export const Navbar = () => {
             className="flex justify-center items-center gap-2"
             color="foreground"
             href="/"
+            onClick={() => setIsMenuOpen(false)} 
           >
-           
             <img
               src={logo}
               alt="Shashvat Singh Logo"
-           
               className="object-contain h-20 w-20"
-              
             />
-           
           </Link>
         </NavbarBrand>
       </NavbarContent>
 
-     
+      
       <NavbarContent className="hidden lg:flex gap-6 justify-center flex-1">
         {siteConfig.navItems.map((item) => (
-            
           <NavbarItem key={item.href}>
             <Link
               href={item.href}
@@ -62,7 +61,7 @@ export const Navbar = () => {
       </NavbarContent>
 
       
-      <NavbarContent className="hidden sm:flex basis-1/5" justify="end">
+      <NavbarContent className="hidden lg:flex basis-1/5" justify="end">
         <NavbarItem className="flex items-center gap-4">
           <div className="flex gap-3 justify-center text-xl">
             <a
@@ -70,7 +69,7 @@ export const Navbar = () => {
               aria-label="LinkedIn"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-blue-600 transition"
+              className="text-white hover:text-blue-400 transition"
             >
               <CiLinkedin />
             </a>
@@ -79,20 +78,41 @@ export const Navbar = () => {
               aria-label="GitHub"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-gray-800 transition"
+              className="text-white hover:text-gray-400 transition"
             >
               <RiGithubFill />
             </a>
           </div>
-          <ThemeSwitch />
-          <NotificationIcon/>
+          <NotificationIcon />
         </NavbarItem>
       </NavbarContent>
 
       
-      <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
-        <ThemeSwitch />
-        <NavbarMenuToggle />
+      <NavbarContent className="lg:hidden basis-1 pl-4" justify="end">
+        <NavbarItem className="flex items-center gap-4">
+          <div className="flex gap-3 justify-center text-xl">
+            <a
+              href="https://www.linkedin.com/in/shashvat-singh-258a032b5/"
+              aria-label="LinkedIn"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-blue-400 transition"
+            >
+              <CiLinkedin />
+            </a>
+            <a
+              href="https://github.com/Singh-Shashvat"
+              aria-label="GitHub"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-gray-400 transition"
+            >
+              <RiGithubFill />
+            </a>
+          </div>
+        </NavbarItem>
+        <NotificationIcon />
+        <NavbarMenuToggle className="text-white" />
       </NavbarContent>
 
       
@@ -103,6 +123,7 @@ export const Navbar = () => {
               <Link
                 href={item.href}
                 size="lg"
+                onClick={() => setIsMenuOpen(false)} 
                 className={`hover:opacity-80 transition ${
                   index === 2
                     ? "text-primary"
@@ -120,4 +141,3 @@ export const Navbar = () => {
     </HeroUINavbar>
   );
 };
-

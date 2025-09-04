@@ -8,7 +8,7 @@ export  const Projects = () => {
         <section className="py-4 px-6 scroll-mt-60 ">
           <div className="max-w-6xl mx-auto text-center">
             <h2 className="text-6xl font-bold  mb-10">
-            🚀 <span className="bg-gradient-to-l from-[#DF8908] to-[#B415FF] bg-clip-text text-transparent relative">{projectHeading}</span>
+            🚀 <span className="bg-gradient-to-l from-[#DF8908] to-[#B415FF] bg-clip-text text-transparent relative text-3xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-6xl">{projectHeading}</span>
             </h2>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 ">

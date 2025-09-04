@@ -10,7 +10,7 @@ export const Achievements = () => {
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-6xl font-bold text-center mb-6 bg-gradient-to-l from-[#DF8908] to-[#B415FF] bg-clip-text text-transparent"
+          className=" font-bold text-center mb-6 bg-gradient-to-l from-[#DF8908] to-[#B415FF] bg-clip-text text-transparent text-3xl sm:text-3xl md:text-4xl lg:text-6xl "
         >
           Achievements
         </motion.h2>

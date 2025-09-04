@@ -13,7 +13,7 @@ export const Technologieslearn = ({title , items} : ITechCategory) => {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay:  0.2 }}
             >
-              <p className="font-bold text-lg mb-4">{title}</p>
+              <p className="font-bold bg-gradient-to-l from-[#DF8908] to-[#B415FF] bg-clip-text text-transparent text-lg mb-4">{title}</p>
               <ul className="space-y-3">
                 {items.map((item) => (
                   <motion.li

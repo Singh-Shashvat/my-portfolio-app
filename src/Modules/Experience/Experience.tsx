@@ -1,7 +1,7 @@
 
 import { motion } from "framer-motion";
 import { experiences } from "@/Constant/Constant";
-import {ProjectTechs} from "@/Modules/Project/ProjectTechs";
+import {ProjectTechs} from "@/Modules/Experience/ProjectTechs";
 
 export const Experience = () => {
   return (
@@ -9,7 +9,7 @@ export const Experience = () => {
       <section className="min-h-screen flex flex-col items-center justify-center p-6">
         
         <motion.h2
-          className="text-6xl font-bold mb-10 bg-gradient-to-l from-[#DF8908] to-[#B415FF] bg-clip-text text-transparent"
+          className=" font-bold mb-10 bg-gradient-to-l from-[#DF8908] to-[#B415FF] bg-clip-text text-transparent text-3xl sm:text-3xl md:text-4xl lg:text-6xl "
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
