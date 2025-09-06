@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { projectHeading, projects } from "@/Constant/Constant";
+import { projectHeading, projects } from "@/constants/Constant";
+import { IProject } from "./projectTypes";
 
 
 export  const Projects = () => {
@@ -12,7 +13,7 @@ export  const Projects = () => {
             </h2>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 ">
-              {projects.map((project, index) => (
+              {projects.map((project: IProject, index) => (
                 <motion.div
                 key={project.title}
                 className="p-6  rounded-2xl shadow-lg hover:shadow-2xl transition-all cursor-pointer border-2"

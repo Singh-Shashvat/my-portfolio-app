@@ -1,12 +1,12 @@
 import { Route, Routes } from "react-router-dom";
 
-import {FrontIntroduction} from "./Modules/FirstPageCombinedModules/FrontIntroduction";
+import {FrontIntroduction} from "@/Modules/FirstPageCombinedModules/FrontIntroduction";
 
-import {Projects} from "./Modules/Project/Projects";
+import {Projects} from "@/Modules/project/Projects";
 
-import { Contact } from "./Modules/Contact/Contact";
-import { DefaultLayout } from "./layouts/layout";
-import { NoteficationProvider } from "./Context/NoteficationContext";
+import { Contact } from "@/Modules/contact/Contact";
+import { DefaultLayout } from "@/layouts/layout";
+import { NoteficationProvider } from "@/context/NoteficationContext";
 
 
 function App() {

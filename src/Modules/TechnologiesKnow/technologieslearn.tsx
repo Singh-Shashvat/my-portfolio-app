@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ITechCategory } from "@/types";
+import { IItems, ITechCategory } from "@/Modules/technologiesKnow/techTypes";
 
 export const Technologieslearn = ({title , items} : ITechCategory) => {
   return (
@@ -15,7 +15,7 @@ export const Technologieslearn = ({title , items} : ITechCategory) => {
             >
               <p className="font-bold bg-gradient-to-l from-[#DF8908] to-[#B415FF] bg-clip-text text-transparent text-lg mb-4">{title}</p>
               <ul className="space-y-3">
-                {items.map((item) => (
+                {items.map((item: IItems) => (
                   <motion.li
                     key={item.name}
                     className="flex items-center gap-3 list-none cursor-pointer "

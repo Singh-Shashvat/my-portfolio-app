@@ -1,6 +1,6 @@
-import { IAchievement } from "@/types";
+
 import { FaTrophy, FaMedal, FaAward } from "react-icons/fa";
-export const achievements: IAchievement[] = [
+export const achievements = [
   {
     title: "Hackathon Winner",
     description: "Won 1st place at Navonmesh 2.0 Hackathon for developing an AI-powered disease diagnostic system.",
@@ -53,9 +53,8 @@ export const experiences = [
 ];
 
 
-import { IIntroduction } from "@/types";
 
-export const Introductiondata: IIntroduction[] =[
+export const Introductiondata = [
     {
         salutation: "Hi, I’m Shashvat 👋",
         position: " Fullstack Developer",
@@ -66,11 +65,11 @@ export const Introductiondata: IIntroduction[] =[
 ];
 
 import { FaDatabase, FaRobot, FaGlobe, FaLaptopCode } from "react-icons/fa";
-import { IProject } from "@/types";
 
 
 
-export const projects: IProject[] = [
+
+export const projects  = [
   {
     title: "IPO Web Application",
     description:

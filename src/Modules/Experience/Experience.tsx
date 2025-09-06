@@ -1,7 +1,8 @@
 
 import { motion } from "framer-motion";
-import { experiences } from "@/Constant/Constant";
-import {ProjectTechs} from "@/Modules/Experience/ProjectTechs";
+import { experiences } from "@/constants/Constant";
+import {ProjectTechs} from "@/Modules/experience/ProjectTechs";
+import {  IExperienceType } from "@/Modules/experience/experienceTypes";
 
 export const Experience = () => {
   return (
@@ -19,7 +20,7 @@ export const Experience = () => {
 
         
         <div className="space-y-8 w-full max-w-3xl">
-          {experiences.map((exp, index) => (
+          {experiences.map((exp : IExperienceType, index) => (
             <motion.div
               key={exp.role}
               className="relative border-l-4 border-blue-500 pl-6 p-4 rounded-lg hover:shadow-lg transition-shadow duration-300"

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { achievements } from "@/Constant/Constant";
+import { achievements } from "@/constants/Constant";
+import { IAchievement } from "@/Modules/achievement/achievTypes";
 
 
 export const Achievements = () => {
@@ -16,7 +17,7 @@ export const Achievements = () => {
         </motion.h2>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {achievements.map((ach, index) => (
+          {achievements.map((ach : IAchievement, index) => (
             <motion.div
               key={ach.title}
               initial={{ opacity: 0, y: 50 }}

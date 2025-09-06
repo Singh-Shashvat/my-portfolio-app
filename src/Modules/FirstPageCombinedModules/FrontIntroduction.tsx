@@ -1,7 +1,7 @@
 import {IndexPage} from "../introduction/Index";
-import { Technologies } from "../TechnologiesKnow/technologies";
-import { Achievements } from "../Achievement/Achievements";
-import {Experience} from "../Experience/Experience";
+import { Technologies } from "../technologiesKnow/technologies";
+import { Achievements } from "../achievement/Achievements";
+import {Experience} from "../experience/Experience";
 
 export const FrontIntroduction = () => {
   return (

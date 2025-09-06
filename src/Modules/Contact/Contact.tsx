@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import { Input, Textarea, Button } from "@heroui/react";
-import { NoteficationContext } from "@/Context/NoteficationContext";
+import { NoteficationContext } from "@/context/NoteficationContext";
 
 export const Contact = () => {
   const notificationCtx = useContext(NoteficationContext);

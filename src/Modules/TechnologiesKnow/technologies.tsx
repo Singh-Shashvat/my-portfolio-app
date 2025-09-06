@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
-import { Technologieslearn } from "@/Modules/TechnologiesKnow/technologieslearn";
-import { techHeading, techIntro, technologies } from "@/Constant/Constant";
+import { Technologieslearn } from "@/Modules/technologiesKnow/technologieslearn";
+import { techHeading, techIntro, technologies } from "@/constants/Constant";
+import { ITechCategory } from "@/Modules/technologiesKnow/techTypes";
+
 
 
 
@@ -25,7 +27,7 @@ export const Technologies = () => {
 
         <div className="flex justify-center items-center gap-4  flex-col sm:flex-col md:flex-row md:items-start lg:flex-row lg:items-start xl:flex-row xl:items-start">
 
-        {technologies.map((techx ) => (
+        {technologies.map((techx: ITechCategory ) => (
             <Technologieslearn 
             key={techx.title}
             title={techx.title}

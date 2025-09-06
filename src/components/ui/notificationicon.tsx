@@ -1,5 +1,5 @@
 import {  useState } from "react";
-import {  useNotificationContext } from "@/Context/NoteficationContext";
+import {  useNotificationContext } from "@/context/NoteficationContext";
 
 export const NotificationIcon = () => {
 

@@ -1,4 +1,4 @@
-import { INotefication, INoteficationContext, INoteficationType } from "@/types";
+import { INotefication, INoteficationContext, INoteficationType } from "@/context/notificationTypes";
 import { createContext, ReactNode, useContext, useState } from "react";
 
 export const NoteficationContext = createContext<INotefication | null> (null);

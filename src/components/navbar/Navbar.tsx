@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "@heroui/link";
-import { CiLinkedin } from "react-icons/ci";
-import { RiGithubFill } from "react-icons/ri";
+
 
 import {
   Navbar as HeroUINavbar,
@@ -13,9 +12,12 @@ import {
   NavbarMenuItem,
 } from "@heroui/navbar";
 
-import { siteConfig } from "@/Constant/Constant";
-import logo from "../assets/logo.png";
-import { NotificationIcon } from "./notificationicon";
+import { siteConfig } from "@/constants/Constant";
+import logo from "@/assets/logo.png";
+import { NotificationIcon } from "@/components/ui/notificationicon";
+import { NavItem } from "@/components/navbar/navTypes";
+import { LinkedinIcon } from "@/icons/LinkedinIcon";
+import GithubIcon from "@/icons/GithubIcon";
 
 export const Navbar = () => {
   
@@ -48,7 +50,7 @@ export const Navbar = () => {
 
       
       <NavbarContent className="hidden lg:flex gap-6 justify-center flex-1">
-        {siteConfig.navItems.map((item) => (
+        {siteConfig.navItems.map((item: NavItem ) => (
           <NavbarItem key={item.href}>
             <Link
               href={item.href}
@@ -64,24 +66,8 @@ export const Navbar = () => {
       <NavbarContent className="hidden lg:flex basis-1/5" justify="end">
         <NavbarItem className="flex items-center gap-4">
           <div className="flex gap-3 justify-center text-xl">
-            <a
-              href="https://www.linkedin.com/in/shashvat-singh-258a032b5/"
-              aria-label="LinkedIn"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white hover:text-blue-400 transition"
-            >
-              <CiLinkedin />
-            </a>
-            <a
-              href="https://github.com/Singh-Shashvat"
-              aria-label="GitHub"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white hover:text-gray-400 transition"
-            >
-              <RiGithubFill />
-            </a>
+            <LinkedinIcon />
+            <GithubIcon />
           </div>
           <NotificationIcon />
         </NavbarItem>
@@ -91,24 +77,8 @@ export const Navbar = () => {
       <NavbarContent className="lg:hidden basis-1 pl-4" justify="end">
         <NavbarItem className="flex items-center gap-4">
           <div className="flex gap-3 justify-center text-xl">
-            <a
-              href="https://www.linkedin.com/in/shashvat-singh-258a032b5/"
-              aria-label="LinkedIn"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white hover:text-blue-400 transition"
-            >
-              <CiLinkedin />
-            </a>
-            <a
-              href="https://github.com/Singh-Shashvat"
-              aria-label="GitHub"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white hover:text-gray-400 transition"
-            >
-              <RiGithubFill />
-            </a>
+            <LinkedinIcon />
+            <GithubIcon />
           </div>
         </NavbarItem>
         <NotificationIcon />
@@ -118,7 +88,7 @@ export const Navbar = () => {
       
       <NavbarMenu>
         <div className="mx-4 mt-2 flex flex-col gap-3">
-          {siteConfig.navItems.map((item, index) => (
+          {siteConfig.navItems.map((item :NavItem, index) => (
             <NavbarMenuItem key={index}>
               <Link
                 href={item.href}

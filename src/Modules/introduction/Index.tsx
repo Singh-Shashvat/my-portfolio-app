@@ -1,6 +1,7 @@
 import profilepic2 from "@/assets/ChatGPT Image Aug 24, 2025, 03_42_53 PM.png";
 import { motion } from "framer-motion";
-import {Introductiondata} from "@/Constant/Constant"
+import {Introductiondata} from "@/constants/Constant"
+import { IIntroduction } from "./introTypes";
 
 export const IndexPage = () => {
   return (
@@ -21,7 +22,7 @@ export const IndexPage = () => {
 
         
         <div className=" flex flex-col justify-center items-center gap-4 sm:w-full md:w-1/2 lg:w-1/2 xl:w-1/2">
-        {Introductiondata.map((intro ) =>(
+        {Introductiondata.map((intro: IIntroduction ) =>(
           <>
             <motion.h1
               key={intro.salutation}

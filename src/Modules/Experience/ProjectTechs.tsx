@@ -1,4 +1,4 @@
-import { IExperienceTech } from "@/types"
+import { IExperienceTech } from "@/Modules/experience/experienceTypes"
 
 
 export const ProjectTechs = ({technologies}:IExperienceTech) => {
