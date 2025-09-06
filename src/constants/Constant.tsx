@@ -169,8 +169,8 @@ export const projectHeading = "My Project";
 
 
 export const siteConfig = {
-  name: "Vite + HeroUI",
-  description: "Make beautiful websites regardless of your design experience.",
+  name: "My-Portfolio-App",
+  description: "A proactive fresher with a keen interest in full-stack development, eager to learn, contribute, and grow with a dynamic team.",
   navItems: [
     {
       label: "Introduction",
