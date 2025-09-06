@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import { Technologieslearn } from "@/Modules/technologiesKnow/technologieslearn";
+import { Technologieslearn } from "@/Modules/details/technologiesKnow/technologieslearn";
 import { techHeading, techIntro, technologies } from "@/constants/Constant";
-import { ITechCategory } from "@/Modules/technologiesKnow/techTypes";
+import { ITechCategory } from "@/Modules/details/technologiesKnow/techTypes";
 
 
 

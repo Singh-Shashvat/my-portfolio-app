@@ -2,9 +2,9 @@ import { Route, Routes } from "react-router-dom";
 
 import {FrontIntroduction} from "@/Modules/FirstPageCombinedModules/FrontIntroduction";
 
-import {Projects} from "@/Modules/project/Projects";
+import {Projects} from "@/Modules/WorkandExperience/project/Projects";
 
-import { Contact } from "@/Modules/contact/Contact";
+import { Contact } from "@/Modules/details/contact/Contact";
 import { DefaultLayout } from "@/layouts/layout";
 import { NoteficationProvider } from "@/context/NoteficationContext";
 

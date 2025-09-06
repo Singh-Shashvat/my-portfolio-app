@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { IItems, ITechCategory } from "@/Modules/technologiesKnow/techTypes";
+import { IItems, ITechCategory } from "@/Modules/details/technologiesKnow/techTypes";
 
 export const Technologieslearn = ({title , items} : ITechCategory) => {
   return (

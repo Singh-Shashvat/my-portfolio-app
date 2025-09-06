@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { achievements } from "@/constants/Constant";
-import { IAchievement } from "@/Modules/achievement/achievTypes";
+import { IAchievement } from "@/Modules/details/achievement/achievTypes";
 
 
 export const Achievements = () => {

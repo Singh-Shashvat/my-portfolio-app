@@ -1,8 +1,8 @@
 
 import { motion } from "framer-motion";
 import { experiences } from "@/constants/Constant";
-import {ProjectTechs} from "@/Modules/experience/ProjectTechs";
-import {  IExperienceType } from "@/Modules/experience/experienceTypes";
+import {ProjectTechs} from "@/Modules/WorkandExperience/experience/ProjectTechs";
+import {  IExperienceType } from "@/Modules/WorkandExperience/experience/experienceTypes";
 
 export const Experience = () => {
   return (
