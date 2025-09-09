@@ -1,4 +1,4 @@
-import profilepic2 from "@/assets/ChatGPT Image Aug 24, 2025, 03_42_53 PM.png";
+import profilepic2 from "@/assets/icons/ChatGPT Image Aug 24, 2025, 03_42_53 PM.png";
 import { motion } from "framer-motion";
 import {Introductiondata} from "@/constants/Constant"
 import { IIntroduction } from "./introTypes";

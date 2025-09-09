@@ -13,7 +13,7 @@ import {
 } from "@heroui/navbar";
 
 import { siteConfig } from "@/constants/Constant";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/icons/logo.png";
 import { NotificationIcon } from "@/components/ui/notificationicon";
 import { NavItem } from "@/components/navbar/navTypes";
 import { LinkedinIcon } from "@/components/ui/LinkedinIcon";
