@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import { Input, Textarea, Button } from "@heroui/react";
-import { NoteficationContext } from "@/context/NoteficationContext";
+import { NoteficationContext } from "@/context/notificationcontext/NoteficationContext";
 
 export const Contact = () => {
   const notificationCtx = useContext(NoteficationContext);
@@ -34,7 +34,6 @@ export const Contact = () => {
       });
 
       if (response.ok) {
-        
         addNotefication({ name: form.name, message: form.message });
 
         alert("Your message has been sent!");
@@ -49,7 +48,7 @@ export const Contact = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen pb-4 pt-0">
+    <div className="flex flex-col items-center justify-center min-h-screen  pt-0">
       <h1 className="flex justify-center text-6xl font-bold mb-6 bg-gradient-to-l from-[#00F5A0] to-[#00D9F5] bg-clip-text text-transparent">
         Contact Me
       </h1>
@@ -60,6 +59,7 @@ export const Contact = () => {
           onChange={(input) => handleChange("name", input.target.value)}
           variant="bordered"
           fullWidth
+          className="text-white"
           name="name"
           required
         />
@@ -70,6 +70,7 @@ export const Contact = () => {
           onChange={(input) => handleChange("email", input.target.value)}
           variant="bordered"
           fullWidth
+          className="text-white"
           name="email"
           required
         />
@@ -80,6 +81,7 @@ export const Contact = () => {
           variant="bordered"
           fullWidth
           minRows={4}
+          className="text-white"
           name="message"
           required
         />

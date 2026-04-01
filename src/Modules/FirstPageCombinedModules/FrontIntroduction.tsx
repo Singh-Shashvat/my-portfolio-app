@@ -1,5 +1,5 @@
 import {IndexPage} from "../details/introduction/Index";
-import { Technologies } from "../details/technologiesKnow/technologies";
+import { Technologies } from "@/Modules/details/technologiesKnow/Technologies";
 import { Achievements } from "../details/achievement/Achievements";
 import {Experience} from "../WorkandExperience/experience/Experience";
 
