@@ -1,38 +1,29 @@
 import { motion } from "framer-motion";
-import {
-  IItems,
-  ITechCategory,
-} from "@/Modules/details/technologiesKnow/techTypes";
+import type { IItems, ITechCategory } from "@/Modules/details/technologiesKnow/techTypes";
 
 export const Technologieslearn = ({ title, items }: ITechCategory) => {
   return (
-    <div className="flex flex-wrap gap-6 justify-center">
-      <motion.div
-        className="p-6 rounded-xl shadow-md bg-gray-900/50 backdrop-blur-sm "
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-      >
-        <p className="font-bold bg-gradient-to-l from-[#DF8908] to-[#B415FF] bg-clip-text text-transparent text-lg mb-4">
-          {title}
-        </p>
-        <ul className="space-y-3">
-          {items.map((item: IItems) => (
-            <motion.li
-              key={item.name}
-              className="flex items-center gap-3 list-none cursor-pointer "
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {item.icon}
-              <span className="bg-gradient-to-l from-[#43e97b] to-[#38f9d7] bg-clip-text text-transparent">
-                {item.name}
-              </span>
-            </motion.li>
-          ))}
-        </ul>
-      </motion.div>
-    </div>
+    <motion.div
+      className="flex flex-col h-full p-5 sm:p-6 rounded-2xl bg-neutral-900/40 border border-neutral-800/80 hover:border-cyan-500/40 backdrop-blur-sm transition-all duration-300 shadow-lg shadow-black/40 hover:shadow-cyan-500/5 hover:-translate-y-1"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+    >
+      <h3 className="font-bold bg-gradient-to-r from-[#DF8908] to-[#B415FF] bg-clip-text text-transparent text-lg mb-4 pb-2 border-b border-neutral-800">
+        {title}
+      </h3>
+      <ul className="space-y-3 flex-grow">
+        {items.map((item: IItems) => (
+          <li
+            key={item.name}
+            className="flex items-center gap-3 text-neutral-300 hover:text-white transition-colors"
+          >
+            <span className="text-xl shrink-0">{item.icon}</span>
+            <span className="text-sm font-medium">{item.name}</span>
+          </li>
+        ))}
+      </ul>
+    </motion.div>
   );
 };

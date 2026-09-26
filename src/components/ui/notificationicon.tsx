@@ -1,5 +1,4 @@
 import { useState, useMemo } from "react";
-import { useNotificationContext } from "@/context/notificationcontext/NoteficationContext";
 import { useLocation } from "react-router-dom";
 import {
   Drawer,
@@ -8,6 +7,8 @@ import {
   DrawerHeader,
 } from "@heroui/drawer";
 import { Button } from "@heroui/button";
+
+import { useNotificationContext } from "@/context/notificationcontext/NoteficationContext";
 
 type FilterType = "notifications" | "read" | "unread";
 
@@ -19,8 +20,7 @@ export const NotificationIcon = () => {
   const [filter, setFilter] = useState<FilterType>("notifications");
   const [expandedIds, setExpandedIds] = useState<number[]>([]);
 
-  const isNotificationVisible = pathname === "/";
-  if (!notification) return null;
+  if (pathname !== "/" || !notification) return null;
 
   const totalCount = notification.length;
   const readCount = notification.filter((n) => n.read).length;
@@ -29,6 +29,7 @@ export const NotificationIcon = () => {
   const filteredNotifications = useMemo(() => {
     if (filter === "read") return notification.filter((n) => n.read);
     if (filter === "unread") return notification.filter((n) => !n.read);
+
     return notification;
   }, [filter, notification]);
 
@@ -38,6 +39,7 @@ export const NotificationIcon = () => {
         if (!isRead) {
           markAsRead(id);
         }
+
         return prev.filter((x) => x !== id);
       } else {
         return [...prev, id];
@@ -47,90 +49,97 @@ export const NotificationIcon = () => {
 
   return (
     <div className="rounded-full relative">
-      {isNotificationVisible && (
-        <Button
-          isIconOnly
-          className="backdrop-blur-sm rounded-full bg-transparent text-white"
-          variant="light"
-          onPress={() => {
-            setOpen(true);
-            setFilter("notifications");
-          }}
-        >
-          <span className="relative">
-            🔔
-            {unreadCount > 0 && (
-              <span className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-red-500 z-20" />
-            )}
-          </span>
-        </Button>
-      )}
+      <Button
+        isIconOnly
+        className="backdrop-blur-sm rounded-full bg-transparent text-white hover:bg-neutral-800/60 min-h-[44px] min-w-[44px]"
+        variant="light"
+        aria-label="Open notifications"
+        onPress={() => {
+          setOpen(true);
+          setFilter("notifications");
+        }}
+      >
+        <span className="relative text-xl">
+          🔔
+          {unreadCount > 0 && (
+            <span className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-red-500 z-20 shadow-sm shadow-red-500/50" />
+          )}
+        </span>
+      </Button>
 
-      <Drawer isOpen={open} onOpenChange={setOpen} placement="right" size="sm">
-        <DrawerContent>
+      <Drawer isOpen={open} placement="right" size="sm" onOpenChange={setOpen}>
+        <DrawerContent className="bg-neutral-950 border-l border-neutral-800 text-white">
           {() => (
             <>
-              <DrawerHeader className="flex justify-between items-center">
-                <div className="flex gap-3">
+              <DrawerHeader className="flex justify-between items-center border-b border-neutral-800/80 pb-4">
+                <div className="flex gap-2">
                   <button
-                    className={`px-3 py-1 rounded-lg ${
+                    className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-colors ${
                       filter === "notifications"
                         ? "bg-blue-600 text-white"
-                        : "bg-gray-200 text-gray-800"
+                        : "bg-neutral-800 text-neutral-300 hover:text-white"
                     }`}
                     onClick={() => setFilter("notifications")}
                   >
                     Notifications ({totalCount})
                   </button>
                   <button
-                    className={`px-3 py-1 rounded-lg ${
+                    className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-colors ${
                       filter === "read"
                         ? "bg-blue-600 text-white"
-                        : "bg-gray-200 text-gray-800"
+                        : "bg-neutral-800 text-neutral-300 hover:text-white"
                     }`}
                     onClick={() => setFilter("read")}
                   >
-                    Read
+                    Read ({readCount})
                   </button>
                   <button
-                    className={`px-3 py-1 rounded-lg ${
+                    className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-colors ${
                       filter === "unread"
                         ? "bg-blue-600 text-white"
-                        : "bg-gray-200 text-gray-800"
+                        : "bg-neutral-800 text-neutral-300 hover:text-white"
                     }`}
                     onClick={() => setFilter("unread")}
                   >
-                    Unread 
+                    Unread ({unreadCount})
                   </button>
                 </div>
               </DrawerHeader>
 
-              <DrawerBody className="space-y-3">
+              <DrawerBody className="space-y-3 pt-4">
                 {filteredNotifications.length === 0 ? (
-                  <p className="text-gray-600 dark:text-gray-400">
+                  <p className="text-neutral-400 text-sm text-center py-8">
                     No notifications found
                   </p>
                 ) : (
                   filteredNotifications.map((n) => (
                     <div
                       key={n.id}
-                      className={`p-3 rounded-lg border cursor-pointer transition ${
+                      className={`p-3.5 rounded-xl border cursor-pointer transition ${
                         n.read
-                          ? "bg-gray-100 border-gray-300"
-                          : "bg-blue-50 border-blue-400"
+                          ? "bg-neutral-900/60 border-neutral-800 text-neutral-300"
+                          : "bg-blue-950/30 border-blue-600/50 text-white"
                       }`}
                       onClick={() => toggleExpand(n.id, n.read)}
                     >
-                      <p className="font-bold text-gray-800 dark:text-gray-100">
-                        {n.name}
-                      </p>
-                      {expandedIds.includes(n.id) && (
-                        <p className="text-gray-600 dark:text-gray-400">
+                      <div className="flex items-center justify-between mb-1">
+                        <p className="font-semibold text-sm text-white">
+                          {n.name}
+                        </p>
+                        {!n.read && (
+                          <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-400">
+                            New
+                          </span>
+                        )}
+                      </div>
+                      {expandedIds.includes(n.id) ? (
+                        <p className="text-neutral-300 text-xs leading-relaxed mt-1">
                           {n.message}
                         </p>
-                      )}
-                      {!n.read && !expandedIds.includes(n.id) && (
-                        <span className="text-xs text-blue-600">Unread</span>
+                      ) : (
+                        <p className="text-neutral-400 text-xs truncate mt-1">
+                          {n.message}
+                        </p>
                       )}
                     </div>
                   ))

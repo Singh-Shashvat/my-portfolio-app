@@ -1,17 +1,16 @@
-import {IndexPage} from "../details/introduction/Index";
-import { Technologies } from "@/Modules/details/technologiesKnow/Technologies";
+import { IndexPage } from "../details/introduction/Index";
 import { Achievements } from "../details/achievement/Achievements";
-import {Experience} from "../WorkandExperience/experience/Experience";
+import { Experience } from "../WorkandExperience/experience/Experience";
+
+import { Technologies } from "@/Modules/details/technologiesKnow/Technologies";
 
 export const FrontIntroduction = () => {
   return (
     <>
-        <IndexPage />
-        <Technologies />
-        <Achievements />
-        <Experience />
-    
+      <IndexPage />
+      <Technologies />
+      <Achievements />
+      <Experience />
     </>
-  )
-}
-
+  );
+};

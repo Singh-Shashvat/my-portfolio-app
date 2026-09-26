@@ -1,15 +1,16 @@
 import { motion } from "framer-motion";
 import { achievements } from "@/constants/Constant";
-import { IAchievement } from "@/Modules/details/achievement/achievTypes";
+import type { IAchievement } from "@/Modules/details/achievement/achievTypes";
 
 export const Achievements = () => {
   return (
-    <section className="py-10 px-6 rounded-2xl shadow-md">
+    <section className="py-12 sm:py-16">
       <motion.h2
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className=" font-bold text-center mb-6 bg-gradient-to-l from-[#DF8908] to-[#B415FF] bg-clip-text text-transparent text-3xl sm:text-3xl md:text-4xl lg:text-6xl "
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="font-extrabold text-center mb-10 bg-gradient-to-r from-[#DF8908] to-[#B415FF] bg-clip-text text-transparent text-3xl sm:text-4xl md:text-5xl pb-3 pt-1 px-2 leading-normal overflow-visible inline-block w-full"
       >
         Achievements
       </motion.h2>
@@ -18,24 +19,25 @@ export const Achievements = () => {
         {achievements.map((ach: IAchievement, index) => (
           <motion.div
             key={ach.title}
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: index * 0.2 }}
-            whileHover={{ scale: 1.05 }}
-            className="flex flex-col items-start p-5 rounded-xl shadow hover:shadow-lg transition"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: index * 0.15 }}
+            className="flex flex-col items-start p-6 rounded-2xl bg-neutral-900/40 border border-neutral-800/80 hover:border-cyan-500/40 transition-all duration-300 shadow-lg shadow-black/40 hover:-translate-y-1 h-full"
           >
             <motion.div
               initial={{ rotate: 0 }}
-              whileHover={{ rotate: 15 }}
+              whileHover={{ rotate: 12, scale: 1.1 }}
               transition={{ type: "spring", stiffness: 200 }}
+              className="p-3 rounded-xl bg-neutral-800/60 mb-4"
             >
               {ach.icon}
             </motion.div>
 
-            <h3 className="mt-3 text-lg font-semibold bg-gradient-to-l from-[#0575E6] to-[#D4145A] bg-clip-text text-transparent">
+            <h3 className="text-lg font-semibold bg-gradient-to-r from-[#0575E6] to-[#D4145A] bg-clip-text text-transparent mb-2">
               {ach.title}
             </h3>
-            <p className="bg-gradient-to-l from-[#fc6076] to-[#ff9a44] bg-clip-text text-transparent text-sm mt-2">
+            <p className="text-neutral-400 text-sm leading-relaxed flex-grow">
               {ach.description}
             </p>
           </motion.div>

@@ -1,26 +1,27 @@
 import { motion } from "framer-motion";
 import { Technologieslearn } from "@/Modules/details/technologiesKnow/TechnologiesLearn";
 import { techHeading, techIntro, technologies } from "@/constants/Constant";
-import { ITechCategory } from "@/Modules/details/technologiesKnow/techTypes";
+import type { ITechCategory } from "@/Modules/details/technologiesKnow/techTypes";
 
 export const Technologies = () => {
   return (
-    <div className="p-4  ">
+    <section id="technologies" className="py-12 sm:py-16 scroll-mt-28">
       <motion.div
-        className="flex flex-col justify-center items-center gap-3 mb-8"
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
+        className="flex flex-col justify-center items-center text-center gap-4 mb-10"
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
       >
-        <p className=" pb-4 font-semibold bg-gradient-to-l from-[#DF8908] to-[#B415FF] bg-clip-text text-transparent text-3xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-6xl">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-[#DF8908] to-[#B415FF] bg-clip-text text-transparent pb-3 pt-1 px-2 leading-normal overflow-visible inline-block">
           {techHeading}
-        </p>
-        <p className=" bg-gradient-to-l from-[#F7971E] to-[#FFD200] bg-clip-text text-transparent max-w-3xl text-start  text-xl sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl">
+        </h2>
+        <p className="text-base sm:text-lg text-neutral-300 max-w-3xl leading-relaxed">
           {techIntro}
         </p>
       </motion.div>
 
-      <div className="flex justify-center items-center gap-4  flex-col sm:flex-col md:flex-row md:items-start lg:flex-row lg:items-start xl:flex-row xl:items-start">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
         {technologies.map((techx: ITechCategory) => (
           <Technologieslearn
             key={techx.title}
@@ -29,6 +30,6 @@ export const Technologies = () => {
           />
         ))}
       </div>
-    </div>
+    </section>
   );
 };

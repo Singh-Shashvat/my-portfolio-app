@@ -1,5 +1,5 @@
-export interface IExperienceTech{
-  technologies : string;
+export interface IExperienceTech {
+  technologies: string;
 }
 
 export interface IExperienceType {
