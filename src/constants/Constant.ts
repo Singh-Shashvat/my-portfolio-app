@@ -27,11 +27,17 @@ import {
   SiMysql,
   SiPostgresql,
   SiJavascript,
-  SiNextui,
+  SiHeroui,
   SiReactquery,
   SiNestjs,
+  SiJsonwebtokens,
+  SiSocketdotio,
+  SiMongodb,
+  SiNeon,
+  SiC,
+  SiCplusplus
 } from "react-icons/si";
-import { TbBrandReactNative } from "react-icons/tb";
+import { TbBrandReactNative, TbApi } from "react-icons/tb";
 
 export const achievements = [
   {
@@ -198,7 +204,7 @@ export const technologies = [
         icon: React.createElement(SiTailwindcss, { className: "text-cyan-500" }),
       },
       { name: "Bootstrap", icon: React.createElement(FaBootstrap, { className: "text-purple-600" }) },
-      { name: "Hero-UI", icon: React.createElement(SiNextui, { className: "text-pink-500" }) },
+      { name: "Hero-UI", icon: React.createElement(SiHeroui, { className: "text-pink-500" }) },
       {
         name: "ReactQuery",
         icon: React.createElement(SiReactquery, { className: "text-emerald-400" }),
@@ -211,7 +217,9 @@ export const technologies = [
       { name: "Django", icon: React.createElement(SiDjango, { className: "text-green-800" }) },
       { name: "Nest.js", icon: React.createElement(SiNestjs, { className: "text-red-500" }) },
       { name: "Node.js", icon: React.createElement(FaNodeJs, { className: "text-green-600" }) },
-      { name: "REST APIs", icon: React.createElement(FaDatabase, { className: "text-gray-500" }) },
+      { name: "JWT", icon: React.createElement(SiJsonwebtokens, { className: "text-pink-500" }) },
+      { name: "Socket.io", icon: React.createElement(SiSocketdotio, { className: "text-white" }) },
+      { name: "REST APIs", icon: React.createElement(TbApi, { className: "text-purple-500" }) },
     ],
   },
   {
@@ -219,6 +227,8 @@ export const technologies = [
     items: [
       { name: "PostgreSQL", icon: React.createElement(SiPostgresql, { className: "text-sky-700" }) },
       { name: "MySQL", icon: React.createElement(SiMysql, { className: "text-orange-500" }) },
+      { name: "MongoDB", icon: React.createElement(SiMongodb, { className: "text-green-500" }) },
+      { name: "NeonDB", icon: React.createElement(SiNeon, { className: "text-green-500" }) },
     ],
   },
   {
@@ -230,8 +240,8 @@ export const technologies = [
   {
     title: "Programming",
     items: [
-      { name: "C", icon: React.createElement(FaDatabase, { className: "text-gray-500" }) },
-      { name: "C++", icon: React.createElement(FaDatabase, { className: "text-blue-500" }) },
+      { name: "C", icon: React.createElement(SiC, { className: "text-blue-500" }) },
+      { name: "C++", icon: React.createElement(SiCplusplus, { className: "text-blue-500" }) },
       { name: "Java", icon: React.createElement(FaJava, { className: "text-red-500" }) },
       { name: "Python", icon: React.createElement(FaPython, { className: "text-yellow-500" }) },
     ],
