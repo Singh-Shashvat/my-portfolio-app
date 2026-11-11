@@ -2,7 +2,7 @@ import type { ITechCategory } from "@/Modules/details/technologiesKnow/techTypes
 
 import { motion } from "framer-motion";
 
-import { Technologieslearn } from "@/Modules/details/technologiesKnow/TechnologiesLearn";
+import { Technologieslearn } from "@/Modules/details/technologiesKnow/technologieslearn";
 import { techHeading, techIntro, technologies } from "@/constants/Constant";
 
 export const Technologies = () => {
