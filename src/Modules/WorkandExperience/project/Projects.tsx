@@ -1,11 +1,16 @@
+import type {
+  IProject,
+  IMiniProject,
+} from "@/Modules/WorkandExperience/project/projectTypes";
+
 import { motion } from "framer-motion";
+
 import {
   miniprojectHeading,
   miniProjects,
   projectHeading,
   projects,
 } from "@/constants/Constant";
-import type { IProject, IMiniProject } from "@/Modules/WorkandExperience/project/projectTypes";
 
 export const Projects = () => {
   return (
@@ -13,9 +18,9 @@ export const Projects = () => {
       <div className="max-w-7xl mx-auto text-center">
         {/* Main Projects Section */}
         <motion.h2
+          animate={{ opacity: 1, y: 0 }}
           className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-10"
           initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
           🚀{" "}
@@ -30,9 +35,9 @@ export const Projects = () => {
               key={project.title}
               className="flex flex-col justify-between h-full p-6 rounded-2xl bg-neutral-900/40 border border-neutral-800/80 hover:border-cyan-500/40 transition-all duration-300 shadow-lg shadow-black/40 hover:-translate-y-1 text-left"
               initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              whileInView={{ opacity: 1, y: 0 }}
             >
               <div>
                 <div className="flex items-center justify-start mb-4 p-3 w-fit rounded-xl bg-neutral-800/50">
@@ -63,10 +68,10 @@ export const Projects = () => {
 
               <div className="pt-4 border-t border-neutral-800/60 mt-auto">
                 <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 text-cyan-400 hover:text-cyan-300 text-sm font-semibold transition-colors duration-200"
+                  href={project.link}
+                  rel="noopener noreferrer"
+                  target="_blank"
                 >
                   View Project <span aria-hidden="true">→</span>
                 </a>
@@ -79,9 +84,9 @@ export const Projects = () => {
         <motion.h2
           className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-10 mt-16 sm:mt-20"
           initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          whileInView={{ opacity: 1, y: 0 }}
         >
           <span className="bg-gradient-to-r from-[#DF8908] to-[#B415FF] bg-clip-text text-transparent">
             {miniprojectHeading}
@@ -94,9 +99,9 @@ export const Projects = () => {
               key={project.title}
               className="flex flex-col justify-between h-full p-6 rounded-2xl bg-neutral-900/40 border border-neutral-800/80 hover:border-cyan-500/40 transition-all duration-300 shadow-lg shadow-black/40 hover:-translate-y-1 text-left"
               initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              whileInView={{ opacity: 1, y: 0 }}
             >
               <div>
                 <div className="flex items-center justify-start mb-4 p-3 w-fit rounded-xl bg-neutral-800/50">

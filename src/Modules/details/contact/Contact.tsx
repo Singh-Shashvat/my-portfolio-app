@@ -1,5 +1,6 @@
 import { useState, useContext } from "react";
 import { Input, Textarea, Button } from "@heroui/react";
+
 import { NoteficationContext } from "@/context/notificationcontext/NoteficationContext";
 
 interface IContactForm {
@@ -48,7 +49,7 @@ export const Contact = () => {
       } else {
         alert("Failed to send message. Please try again later.");
       }
-    } catch (error) {
+    } catch {
       alert("Something went wrong. Please try again.");
     } finally {
       setIsSubmitting(false);
@@ -63,22 +64,17 @@ export const Contact = () => {
             Contact Me
           </h1>
           <p className="text-neutral-400 text-sm sm:text-base">
-            Have a project in mind or want to collaborate? Feel free to reach out!
+            Have a project in mind or want to collaborate? Feel free to reach
+            out!
           </p>
         </div>
 
         <form
-          onSubmit={handleSubmit}
           className="p-6 sm:p-8 rounded-3xl bg-neutral-900/40 border border-neutral-800/80 shadow-2xl shadow-black/50 backdrop-blur-md space-y-5"
+          onSubmit={handleSubmit}
         >
           <Input
-            label="Name"
-            value={form.name}
-            onChange={(e) => handleChange("name", e.target.value)}
-            variant="bordered"
             fullWidth
-            name="name"
-            placeholder="Your name"
             required
             classNames={{
               input: "text-white text-sm",
@@ -86,17 +82,16 @@ export const Contact = () => {
                 "border-neutral-700/80 hover:border-cyan-500 focus-within:!border-cyan-500 bg-neutral-950/40",
               label: "text-neutral-400 text-sm font-medium",
             }}
+            label="Name"
+            name="name"
+            placeholder="Your name"
+            value={form.name}
+            variant="bordered"
+            onChange={(e) => handleChange("name", e.target.value)}
           />
 
           <Input
-            label="Email"
-            type="email"
-            value={form.email}
-            onChange={(e) => handleChange("email", e.target.value)}
-            variant="bordered"
             fullWidth
-            name="email"
-            placeholder="you@example.com"
             required
             classNames={{
               input: "text-white text-sm",
@@ -104,17 +99,17 @@ export const Contact = () => {
                 "border-neutral-700/80 hover:border-cyan-500 focus-within:!border-cyan-500 bg-neutral-950/40",
               label: "text-neutral-400 text-sm font-medium",
             }}
+            label="Email"
+            name="email"
+            placeholder="you@example.com"
+            type="email"
+            value={form.email}
+            variant="bordered"
+            onChange={(e) => handleChange("email", e.target.value)}
           />
 
           <Textarea
-            label="Message"
-            value={form.message}
-            onChange={(e) => handleChange("message", e.target.value)}
-            variant="bordered"
             fullWidth
-            minRows={4}
-            name="message"
-            placeholder="Write your message here..."
             required
             classNames={{
               input: "text-white text-sm",
@@ -122,12 +117,19 @@ export const Contact = () => {
                 "border-neutral-700/80 hover:border-cyan-500 focus-within:!border-cyan-500 bg-neutral-950/40",
               label: "text-neutral-400 text-sm font-medium",
             }}
+            label="Message"
+            minRows={4}
+            name="message"
+            placeholder="Write your message here..."
+            value={form.message}
+            variant="bordered"
+            onChange={(e) => handleChange("message", e.target.value)}
           />
 
           <Button
-            type="submit"
-            isLoading={isSubmitting}
             className="w-full min-h-[48px] bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-semibold text-base rounded-xl transition-all shadow-lg shadow-cyan-500/20 active:scale-[0.99]"
+            isLoading={isSubmitting}
+            type="submit"
           >
             {isSubmitting ? "Sending..." : "Send Message"}
           </Button>

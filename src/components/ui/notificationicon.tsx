@@ -20,18 +20,19 @@ export const NotificationIcon = () => {
   const [filter, setFilter] = useState<FilterType>("notifications");
   const [expandedIds, setExpandedIds] = useState<number[]>([]);
 
-  if (pathname !== "/" || !notification) return null;
-
-  const totalCount = notification.length;
-  const readCount = notification.filter((n) => n.read).length;
-  const unreadCount = totalCount - readCount;
-
   const filteredNotifications = useMemo(() => {
+    if (!notification) return [];
     if (filter === "read") return notification.filter((n) => n.read);
     if (filter === "unread") return notification.filter((n) => !n.read);
 
     return notification;
   }, [filter, notification]);
+
+  if (pathname !== "/" || !notification) return null;
+
+  const totalCount = notification.length;
+  const readCount = notification.filter((n) => n.read).length;
+  const unreadCount = totalCount - readCount;
 
   const toggleExpand = (id: number, isRead: boolean) => {
     setExpandedIds((prev) => {
@@ -51,9 +52,9 @@ export const NotificationIcon = () => {
     <div className="rounded-full relative">
       <Button
         isIconOnly
+        aria-label="Open notifications"
         className="backdrop-blur-sm rounded-full bg-transparent text-white hover:bg-neutral-800/60 min-h-[44px] min-w-[44px]"
         variant="light"
-        aria-label="Open notifications"
         onPress={() => {
           setOpen(true);
           setFilter("notifications");
@@ -113,13 +114,15 @@ export const NotificationIcon = () => {
                   </p>
                 ) : (
                   filteredNotifications.map((n) => (
-                    <div
+                    <button
                       key={n.id}
-                      className={`p-3.5 rounded-xl border cursor-pointer transition ${
+                      aria-expanded={expandedIds.includes(n.id)}
+                      className={`w-full text-left p-3.5 rounded-xl border cursor-pointer transition ${
                         n.read
                           ? "bg-neutral-900/60 border-neutral-800 text-neutral-300"
                           : "bg-blue-950/30 border-blue-600/50 text-white"
                       }`}
+                      type="button"
                       onClick={() => toggleExpand(n.id, n.read)}
                     >
                       <div className="flex items-center justify-between mb-1">
@@ -141,7 +144,7 @@ export const NotificationIcon = () => {
                           {n.message}
                         </p>
                       )}
-                    </div>
+                    </button>
                   ))
                 )}
               </DrawerBody>

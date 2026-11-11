@@ -1,3 +1,5 @@
+import type { INavItem } from "@/components/navbar/navTypes";
+
 import { useState } from "react";
 import { Link as RouterLink, useLocation } from "react-router-dom";
 import {
@@ -11,7 +13,6 @@ import {
 } from "@heroui/navbar";
 
 import { siteConfig } from "@/constants/Constant";
-import type { INavItem } from "@/components/navbar/navTypes";
 import logo from "@/assets/icons/logo.png";
 import { NotificationIcon } from "@/components/ui/notificationicon";
 import { LinkedinIcon } from "@/components/ui/LinkedinIcon";
@@ -23,28 +24,29 @@ export const Navbar = () => {
 
   return (
     <HeroUINavbar
-      isMenuOpen={isMenuOpen}
-      onMenuOpenChange={setIsMenuOpen}
-      maxWidth="full"
       className="fixed top-0 inset-x-0 z-50 w-full bg-neutral-950/90 backdrop-blur-xl border-b border-neutral-800/80 shadow-lg shadow-black/50"
       classNames={{
         base: "bg-neutral-950/90 backdrop-blur-xl border-b border-neutral-800/80",
-        wrapper: "w-full max-w-full px-6 sm:px-10 lg:px-12 h-16 sm:h-20 flex justify-between items-center relative",
+        wrapper:
+          "w-full max-w-full px-6 sm:px-10 lg:px-12 h-16 sm:h-20 flex justify-between items-center relative",
         menu: "bg-neutral-950/98 backdrop-blur-2xl pt-6 px-6 border-b border-neutral-800/80 top-16 sm:top-20",
       }}
+      isMenuOpen={isMenuOpen}
+      maxWidth="full"
+      onMenuOpenChange={setIsMenuOpen}
     >
       {/* Brand / Logo at Left Corner */}
       <NavbarContent className="basis-1/4 sm:basis-auto" justify="start">
         <NavbarBrand className="gap-3">
           <RouterLink
-            to="/"
             className="flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 rounded-lg"
+            to="/"
             onClick={() => setIsMenuOpen(false)}
           >
             <img
-              src={logo}
               alt="Shashvat Singh Logo"
               className="h-11 sm:h-13 w-auto object-contain transition-transform duration-200 hover:scale-105"
+              src={logo}
             />
           </RouterLink>
         </NavbarBrand>
@@ -57,15 +59,16 @@ export const Navbar = () => {
       >
         {siteConfig.navItems.map((item: INavItem) => {
           const isActive = location.pathname === item.href;
+
           return (
             <NavbarItem key={item.href} isActive={isActive}>
               <RouterLink
-                to={item.href}
                 className={`relative py-2 px-3 text-base lg:text-lg font-medium transition-all duration-200 tracking-wide ${
                   isActive
                     ? "bg-gradient-to-r from-[#4facfe] to-[#00f2fe] bg-clip-text text-transparent font-bold"
                     : "text-neutral-300 hover:text-white"
                 }`}
+                to={item.href}
               >
                 {item.label}
                 {isActive && (
@@ -113,16 +116,17 @@ export const Navbar = () => {
         <div className="flex flex-col gap-3">
           {siteConfig.navItems.map((item: INavItem) => {
             const isActive = location.pathname === item.href;
+
             return (
               <NavbarMenuItem key={item.href}>
                 <RouterLink
-                  to={item.href}
-                  onClick={() => setIsMenuOpen(false)}
                   className={`flex items-center px-4 py-3 rounded-xl text-lg font-medium transition-all min-h-[44px] ${
                     isActive
                       ? "bg-neutral-900/90 border border-neutral-800 bg-gradient-to-r from-[#4facfe] to-[#00f2fe] bg-clip-text text-transparent font-semibold shadow-sm"
                       : "text-neutral-300 hover:text-white hover:bg-neutral-900/60"
                   }`}
+                  to={item.href}
+                  onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
                 </RouterLink>

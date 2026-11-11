@@ -1,17 +1,19 @@
+import type { ITechCategory } from "@/Modules/details/technologiesKnow/techTypes";
+
 import { motion } from "framer-motion";
+
 import { Technologieslearn } from "@/Modules/details/technologiesKnow/TechnologiesLearn";
 import { techHeading, techIntro, technologies } from "@/constants/Constant";
-import type { ITechCategory } from "@/Modules/details/technologiesKnow/techTypes";
 
 export const Technologies = () => {
   return (
-    <section id="technologies" className="py-12 sm:py-16 scroll-mt-28">
+    <section className="py-12 sm:py-16 scroll-mt-28" id="technologies">
       <motion.div
         className="flex flex-col justify-center items-center text-center gap-4 mb-10"
         initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
         transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        whileInView={{ opacity: 1, y: 0 }}
       >
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-[#DF8908] to-[#B415FF] bg-clip-text text-transparent pb-3 pt-1 px-2 leading-normal overflow-visible inline-block">
           {techHeading}
@@ -25,8 +27,8 @@ export const Technologies = () => {
         {technologies.map((techx: ITechCategory) => (
           <Technologieslearn
             key={techx.title}
-            title={techx.title}
             items={techx.items}
+            title={techx.title}
           />
         ))}
       </div>

@@ -1,5 +1,6 @@
-import { footerdata } from "@/constants/Constant";
 import type { IFootType } from "@/components/footer/footTypes";
+
+import { footerdata } from "@/constants/Constant";
 
 export const Footer = () => {
   return (
@@ -10,15 +11,15 @@ export const Footer = () => {
             foot.type === "gmail"
               ? `mailto:${foot.value}`
               : foot.type === "MobNo"
-              ? `tel:${foot.value}`
-              : undefined;
+                ? `tel:${foot.value}`
+                : undefined;
 
           if (href) {
             return (
               <a
                 key={foot.type}
-                href={href}
                 className="group flex items-center gap-2 transition-transform duration-200 hover:scale-105"
+                href={href}
               >
                 <span className="bg-gradient-to-r from-[#4facfe] to-[#00f2fe] bg-clip-text text-transparent group-hover:brightness-125">
                   {foot.value}
@@ -39,4 +40,3 @@ export const Footer = () => {
     </footer>
   );
 };
-
