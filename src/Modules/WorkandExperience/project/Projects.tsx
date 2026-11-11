@@ -1,81 +1,138 @@
+import type {
+  IProject,
+  IMiniProject,
+} from "@/Modules/WorkandExperience/project/projectTypes";
+
 import { motion } from "framer-motion";
-import { miniprojectHeading, miniProjects, projectHeading, projects } from "@/constants/Constant";
-import { IProject,IMiniProject } from "./projectTypes";
 
+import {
+  miniprojectHeading,
+  miniProjects,
+  projectHeading,
+  projects,
+} from "@/constants/Constant";
 
-export  const Projects = () => {
+export const Projects = () => {
   return (
-   
-        <section className="mt-20 pb-4 px-6 scroll-mt-60 ">
-          <div className="max-w-6xl mx-auto text-center">
-            <h2 className="text-6xl font-bold  mb-10">
-            🚀 <span className="bg-gradient-to-l from-[#DF8908] to-[#B415FF] bg-clip-text text-transparent relative text-3xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-6xl">{projectHeading}</span>
-            </h2>
+    <section className="py-6 sm:py-10">
+      <div className="max-w-7xl mx-auto text-center">
+        {/* Main Projects Section */}
+        <motion.h2
+          animate={{ opacity: 1, y: 0 }}
+          className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-10"
+          initial={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.6 }}
+        >
+          🚀{" "}
+          <span className="bg-gradient-to-r from-[#DF8908] to-[#B415FF] bg-clip-text text-transparent">
+            {projectHeading}
+          </span>
+        </motion.h2>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 ">
-              {projects.map((project: IProject, index) => (
-                <motion.div
-                key={project.title}
-                className="p-6  rounded-2xl shadow-lg hover:shadow-2xl transition-all cursor-pointer border-2"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-                whileHover={{ scale: 1.05 }}
-                >
-                  <div className="flex justify-center mb-4">{project.icon}</div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {projects.map((project: IProject, index: number) => (
+            <motion.div
+              key={project.title}
+              className="flex flex-col justify-between h-full p-6 rounded-2xl bg-neutral-900/40 border border-neutral-800/80 hover:border-cyan-500/40 transition-all duration-300 shadow-lg shadow-black/40 hover:-translate-y-1 text-left"
+              initial={{ opacity: 0, y: 30 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              whileInView={{ opacity: 1, y: 0 }}
+            >
+              <div>
+                <div className="flex items-center justify-start mb-4 p-3 w-fit rounded-xl bg-neutral-800/50">
+                  {project.icon}
+                </div>
 
-                  <h3 className="text-xl font-semibold bg-gradient-to-l from-[#43e97b] to-[#38f9d7] bg-clip-text text-transparent">
-                      {project.title}
-                  </h3>
+                <h3 className="text-xl font-semibold bg-gradient-to-r from-[#43e97b] to-[#38f9d7] bg-clip-text text-transparent mb-2">
+                  {project.title}
+                </h3>
 
-                  <p className="bg-gradient-to-l from-[#0575E6] to-[#D4145A] bg-clip-text text-transparent text-sm mt-2">
-                      {project.description}
-                  </p>
+                <p className="text-neutral-300 text-sm leading-relaxed mb-4">
+                  {project.description}
+                </p>
 
-                  <a
-                      href={project.link}
-                      target="_blank"
-                      className="inline-block mt-4 text-primary font-medium hover:underline"
+                {project.tech && project.tech.length > 0 && (
+                  <div className="flex flex-wrap gap-1.5 mb-4">
+                    {project.tech.map((t: string) => (
+                      <span
+                        key={t}
+                        className="px-2.5 py-0.5 text-xs rounded-md bg-neutral-800/80 border border-neutral-700/60 text-neutral-300"
                       >
-                      View Project →
-                  </a>
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
 
-                </motion.div>
-            ))}
-            </div>
-
-            <h2 className="text-6xl font-bold  mb-10 mt-6">
-            <span className="bg-gradient-to-l from-[#DF8908] to-[#B415FF] bg-clip-text text-transparent relative text-3xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-6xl">{miniprojectHeading}</span>
-            </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-2 ">
-              {miniProjects.map((project: IMiniProject, index) => (
-                <motion.div
-                key={project.title}
-                className="p-6  rounded-2xl shadow-lg hover:shadow-2xl transition-all cursor-pointer border-2"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-                whileHover={{ scale: 1.05 }}
+              <div className="pt-4 border-t border-neutral-800/60 mt-auto">
+                <a
+                  className="inline-flex items-center gap-1.5 text-cyan-400 hover:text-cyan-300 text-sm font-semibold transition-colors duration-200"
+                  href={project.link}
+                  rel="noopener noreferrer"
+                  target="_blank"
                 >
-                  <div className="flex justify-center mb-4">{project.icon}</div>
+                  View Project <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </motion.div>
+          ))}
+        </div>
 
-                  <h3 className="text-xl font-semibold bg-gradient-to-l from-[#43e97b] to-[#38f9d7] bg-clip-text text-transparent">
-                      {project.title}
-                  </h3>
+        {/* Mini Projects Section */}
+        <motion.h2
+          className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-10 mt-16 sm:mt-20"
+          initial={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          whileInView={{ opacity: 1, y: 0 }}
+        >
+          <span className="bg-gradient-to-r from-[#DF8908] to-[#B415FF] bg-clip-text text-transparent">
+            {miniprojectHeading}
+          </span>
+        </motion.h2>
 
-                  <p className="bg-gradient-to-l from-[#0575E6] to-[#D4145A] bg-clip-text text-transparent text-sm mt-2">
-                      {project.description}
-                  </p>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {miniProjects.map((project: IMiniProject, index: number) => (
+            <motion.div
+              key={project.title}
+              className="flex flex-col justify-between h-full p-6 rounded-2xl bg-neutral-900/40 border border-neutral-800/80 hover:border-cyan-500/40 transition-all duration-300 shadow-lg shadow-black/40 hover:-translate-y-1 text-left"
+              initial={{ opacity: 0, y: 30 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              whileInView={{ opacity: 1, y: 0 }}
+            >
+              <div>
+                <div className="flex items-center justify-start mb-4 p-3 w-fit rounded-xl bg-neutral-800/50">
+                  {project.icon}
+                </div>
 
-                 
+                <h3 className="text-xl font-semibold bg-gradient-to-r from-[#43e97b] to-[#38f9d7] bg-clip-text text-transparent mb-2">
+                  {project.title}
+                </h3>
 
-                </motion.div>
-            ))}
-            </div>
+                <p className="text-neutral-300 text-sm leading-relaxed mb-4">
+                  {project.description}
+                </p>
 
-
-          </div>
-        </section>
-  
+                {project.tech && project.tech.length > 0 && (
+                  <div className="flex flex-wrap gap-1.5">
+                    {project.tech.map((t: string) => (
+                      <span
+                        key={t}
+                        className="px-2.5 py-0.5 text-xs rounded-md bg-neutral-800/80 border border-neutral-700/60 text-neutral-300"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
-}
+};

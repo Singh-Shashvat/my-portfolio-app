@@ -1,13 +1,9 @@
-import { IExperienceTech } from "@/Modules/WorkandExperience/experience/experienceTypes"
+import type { IExperienceTech } from "@/Modules/WorkandExperience/experience/experienceTypes";
 
-
-export const ProjectTechs = ({technologies}:IExperienceTech) => {
+export const ProjectTechs = ({ technologies }: IExperienceTech) => {
   return (
-    <div>
-        <span  className="px-3 py-1 text-sm bg-blue-600 rounded-full">
-                    {technologies}
-        </span>
-    </div>
-  )
-}
-
+    <span className="inline-block px-3 py-1 text-xs font-medium bg-neutral-800/80 border border-neutral-700/60 text-cyan-400 rounded-full">
+      {technologies}
+    </span>
+  );
+};

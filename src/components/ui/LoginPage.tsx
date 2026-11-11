@@ -8,8 +8,9 @@ import {
   Input,
   Button,
 } from "@heroui/react";
-import { useNotificationContext } from "@/context/notificationcontext/NoteficationContext";
 import { useNavigate } from "react-router-dom";
+
+import { useNotificationContext } from "@/context/notificationcontext/NoteficationContext";
 
 export const LoginModal = () => {
   const [state, setState] = useState({
@@ -42,11 +43,11 @@ export const LoginModal = () => {
 
   return (
     <Modal
+      hideCloseButton
+      backdrop="blur"
+      isDismissable={false}
       isOpen={state.isOpen}
       onOpenChange={(open) => update("isOpen", open)}
-      hideCloseButton
-      isDismissable={false}
-      backdrop="blur"
     >
       <ModalContent>
         <ModalHeader className="text-lg font-semibold">
@@ -57,16 +58,16 @@ export const LoginModal = () => {
             label="Username"
             placeholder="Enter your name"
             value={state.name}
-            onChange={(e) => update("name", e.target.value)}
             variant="bordered"
+            onChange={(e) => update("name", e.target.value)}
           />
           <Input
             label="Password"
             placeholder="Enter password"
             type="password"
             value={state.password}
-            onChange={(e) => update("password", e.target.value)}
             variant="bordered"
+            onChange={(e) => update("password", e.target.value)}
           />
           {state.error && <p className="text-red-500 text-sm">{state.error}</p>}
         </ModalBody>

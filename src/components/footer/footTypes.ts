@@ -1,4 +1,6 @@
-export interface FootTypes{
-    type: string;
-    value: string;
+export interface IFootType {
+  type: string;
+  value: string;
 }
+
+export type FootTypes = IFootType;
